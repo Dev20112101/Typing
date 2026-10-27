@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>Typing Speed Test</h1>
+      <p>Test your typing speed and accuracy with an infinite quote stream.</p>
+    </header>
+
+    <!-- Telemetry Dashboard -->
+    <section class="telemetry-grid">
+      <div class="card">
+        <span class="card-label">Time Remaining</span>
+        <span class="card-value" id="timer-val">60s</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Mistakes</span>
+        <span class="card-value" id="mistakes-val">0</span>
+      </div>
+      <div class="card">
+        <span class="card-label">WPM</span>
+        <span class="card-value" id="wpm-val">0</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Accuracy</span>
+        <span class="card-value" id="accuracy-val">100%</span>
+      </div>
+    </section>
+
+    <!-- Quote Container & Hidden Input -->
+    <main class="test-area" id="test-area">
+      <div id="quote-display" class="quote-display">Loading next quote...</div>
+      <input type="text" id="hidden-input" class="hidden-input" autocomplete="off" autofocus />
+    </main>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="restart-btn" class="btn">Next Quote / Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

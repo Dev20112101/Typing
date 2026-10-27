@@ -1,0 +1,193 @@
+/* Google Dark Mode Minimalist Palette & Variables */
+:root {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --border-color: #2d2f31;
+  --accent-color: #8ab4f8;
+  --correct-color: #81c995;
+  --incorrect-color: #f28b82;
+  --incorrect-bg: #3c1e1e;
+  
+  /* Button Specific Tokens (White Theme) */
+  --btn-bg: #ffffff;
+  --btn-text: #202124;
+  --btn-hover: #e8eaed;
+  --btn-active: #dadce0;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Roboto Mono", Consolas, Monaco, "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Telemetry Cards Grid */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+/* Test Area & Quote Container */
+.test-area {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 28px;
+  position: relative;
+  cursor: text;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hidden-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quote-display {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  word-break: break-word;
+  user-select: none;
+}
+
+.quote-display.loading {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Character Styling */
+.quote-display span {
+  position: relative;
+  border-radius: 2px;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.quote-display span.correct {
+  color: var(--correct-color);
+}
+
+.quote-display span.incorrect {
+  color: var(--incorrect-color);
+  background-color: var(--incorrect-bg);
+}
+
+/* Caret Blinking Effect */
+.quote-display span.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 2px;
+  height: 1.2em;
+  background-color: var(--accent-color);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Controls & White Button Styling */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+  transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+  .telemetry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
